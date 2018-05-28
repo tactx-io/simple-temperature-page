@@ -16,3 +16,16 @@ Simply opent the index.html in your web browser. In order to set the MQTT broker
 * line 96 connects the client to a MQTT broker hosted on the localhost (Mosquitto)
 
 Tested with Chrome (Windows) and Chromium (Raspbian)
+
+
+## Tech details
+In the javascript section an instance of the paho mqtt clienent is generated. Here is a good documentation online -> https://www.hivemq.com/blog/mqtt-client-library-encyclopedia-paho-js
+After that the the topic is registered either on a local broker or a remote broker. 
+The content of the topic is an array in JSON format with four elements. The four elements represent the temperatures 
+ - Outside air temperature
+ - Water temperature @-0.5m
+ - Water temperature @-1.0m
+ - Water temperature @-1.5m
+ - Water temperature @-2.0m
+
+
