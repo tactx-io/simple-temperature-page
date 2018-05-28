@@ -67,8 +67,8 @@
 <body bgcolor=grey>
 	<table>
 		<tr >
-			<td class="Aussentemperatur" id="item0" >-</td>
-			<td class="depth">-0.5m</td> 
+			<td class="temperature" id="item0" >-</td>
+			<td class="depth">Aussentemperatur</td> 
 		</tr>
 		<tr >
 			<td class="temperature" id="item1" >-</td>
@@ -137,7 +137,7 @@
 	
 	document.addEventListener("DOMContentLoaded", function(event) {
 		console.log("DOM fully loaded and parsed");
-		displayTemperature([22.25,25.56,21.25,15.25]);
+		displayTemperature(["--.--", "--.--", "--.--", "--.--", "--.--"]);
 		document.body.style.backgroundColor = "black";
 		
 	});
