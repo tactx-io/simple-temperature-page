@@ -1,8 +1,7 @@
 <html>
 
-  <head>
-	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-    <title>Sample "Hello, World" Application</title>
+<head>
+	<title>Simple Temperature Display</title>
 	<style>
 	
 	@font-face {
@@ -63,39 +62,37 @@
 		text-align: right;
 	}
 	
-  </style>
-  </head>
-  <body bgcolor=grey>
-	  <table>
-		  <tr >
-				<td class="temperature" id="item0" >-</td>
-				<td class="depth">-0.5m</td> 
-		  </tr>
-		  <tr>
-				<td class="temperature" id="item1">-</td>
-				<td  class="depth">-1.0m</td> 
-		  </tr>
-		  <tr>
-				<td class="temperature" id="item2">-</td>
-				<td  class="depth">-1.5m</td> 
-		  </tr>
-		  <tr>
-				<td class="temperature" id="item3">-</td>
-				<td  class="depth">-2.0m</td> 
-		  </tr>
+</style>
+</head>
+<body bgcolor=grey>
+	<table>
+		<tr >
+			<td class="Aussentemperatur" id="item0" >-</td>
+			<td class="depth">-0.5m</td> 
+		</tr>
+		<tr >
+			<td class="temperature" id="item1" >-</td>
+			<td class="depth">-0.5m</td> 
+		</tr>
+		<tr>
+			<td class="temperature" id="item2">-</td>
+			<td  class="depth">-1.0m</td> 
+		</tr>
+		<tr>
+			<td class="temperature" id="item3">-</td>
+			<td  class="depth">-1.5m</td> 
+		</tr>
+		<tr>
+			<td class="temperature" id="item4">-</td>
+			<td  class="depth">-2.0m</td> 
+		</tr>
 	</table>
-	
-	
 
-	<script src="./scripts/mqttws31.js" type="text/javascript"></script>
-	<script src="./scripts/justgage-1.2.2/raphael-2.1.4.min.js"></script>
-	<script src="./scripts/justgage-1.2.2/justgage.js"></script>
-	
 
 	
 	<script type="text/javascript">
-	humid = 0;
-	temp = 0;
+		humid = 0;
+		temp = 0;
 
 	//client = new Paho.MQTT.Client("iot.eclipse.org", 443 ,"myClientId2" + new Date().getTime());
 	
@@ -111,7 +108,7 @@
 	// Called when the connection is made
 	function onConnect(){
 		console.log('Connected!');
-		client.subscribe('/tactx/unterach/wss/water-temperatures');
+		client.subscribe('tactx/unterach/wss/water-temperatures');
 
 	}
 
@@ -135,18 +132,19 @@
 		document.getElementById("item1").innerHTML = temperatures[1] + '°C';
 		document.getElementById("item2").innerHTML = temperatures[2] + '°C';
 		document.getElementById("item3").innerHTML = temperatures[3] + '°C';
+		document.getElementById("item4").innerHTML = temperatures[4] + '°C';
 	}
 	
 	//displayTemperature([22.25,25.56,21.25,15.25]);
 	
 	document.addEventListener("DOMContentLoaded", function(event) {
-    console.log("DOM fully loaded and parsed");
-	displayTemperature([22.25,25.56,21.25,15.25]);
-			document.body.style.backgroundColor = "black";
+		console.log("DOM fully loaded and parsed");
+		displayTemperature([22.25,25.56,21.25,15.25]);
+		document.body.style.backgroundColor = "black";
 		
-  });
+	});
 
 
-	</script>
-  </body>
+</script>
+</body>
 </html>
