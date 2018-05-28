@@ -13,32 +13,7 @@
 		font-family: 'myNiceFont', sans-serif;
 		background-color:#808080;
 	}
-	.center {
-		margin: auto;
-		width: 60%;
-		border: 3px solid #73AD21;
-		padding: 10px;
-	}
 	
-
-	.container {
-		width: 600px;
-		margin: 100px auto;
-		text-align: center;
-	}
-	
-	.temps{
-		font-size: 70px;
-		color: #FFF;
-		vertical-align: middle;
-	}
-
-	.gauge {
-		width: 250px;
-		height: 250px;
-		display: inline-block;
-		color: #0f0;
-	}
 	table{
 		margin: auto;
 		position: absolute;
@@ -46,7 +21,6 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
-	
 	
 	td{
 		font-size: 70px;
@@ -105,7 +79,6 @@
 		client.connect();
 	}
 
-
 	// Called when the connection is made
 	function onConnect(){
 		console.log('Connected!');
@@ -118,15 +91,11 @@
 		onSuccess: onConnect
 	});
 
-
 	client.onMessageArrived = function (message) {
 		console.log("temperatures " + message.payloadString)
 		var temperatures =  JSON.parse(message.payloadString);  
 		displayTemperature(temperatures);
 	}
-	
-	document.addEventListener("DOMContentLoaded", function(event) {
-	});
 	
 	function displayTemperature(temperatures) {
 		document.getElementById("item0").innerHTML = temperatures[0] + '°C';
@@ -135,9 +104,6 @@
 		document.getElementById("item3").innerHTML = temperatures[3] + '°C';
 		document.getElementById("item4").innerHTML = temperatures[4] + '°C';
 	}
-	
-	//displayTemperature([22.25,25.56,21.25,15.25]);
-	
 	document.addEventListener("DOMContentLoaded", function(event) {
 		console.log("DOM fully loaded and parsed");
 		displayTemperature(["--.--", "--.--", "--.--", "--.--", "--.--"]);
