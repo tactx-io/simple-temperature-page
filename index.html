@@ -70,8 +70,8 @@
 		humid = 0;
 		temp = 0;
 
-	//client = new Paho.MQTT.Client("iot.eclipse.org", Number(80) , "/ws", "myClientId2" + new Date().getTime());
-	client = new Paho.MQTT.Client("192.168.2.1", 1884,"myClientId" + new Date().getTime());
+	client = new Paho.MQTT.Client("iot.eclipse.org", Number(80) , "/ws", "myClientId2" + new Date().getTime());
+	//client = new Paho.MQTT.Client("192.168.2.1", 1884,"myClientId" + new Date().getTime());
 
 	// set callback handlers
 	client.onConnectionLost = function (responseObject) {
